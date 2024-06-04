@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use App\Http\Requests\StorePostRequest;
+
 
 class ProjectController extends Controller
 {
@@ -28,13 +30,13 @@ class ProjectController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
-        $request->validate([
-            'project_title'=>'required|max:255',
-            'project_description'=>'required|max:255',
-            'github_url'=>'required'
-        ]);
+        // $request->validate([
+        //     'project_title'=>'required|max:255',
+        //     'project_description'=>'required|max:255',
+        //     'github_url'=>'required'
+        // ]);
 
         $form_data= $request->all();
         $new_project = Project::create($form_data);
