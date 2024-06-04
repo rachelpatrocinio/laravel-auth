@@ -10,6 +10,10 @@
                     <label for="project_title" class="form-label">Project Title</label>
                     <input type="text" class="form-control" id="project_title" name="project_title" placeholder="Project Title" value="{{old('project_title')}}">
                 </div>
+                <div class="mb-5">
+                    <label for="slug" class="form-label">Slug</label>
+                    <input type="text" class="form-control" id="slug" name="slug" placeholder="Slug" value="{{old('slug')}}">
+                </div>
                 <div class="mb-3">
                     <label for="project_description" class="form-label">Project Description</label>
                     <textarea name="project_description" id="project_description" cols="30" rows="10" class="w-100" value="{{old('project_description')}}"></textarea>
