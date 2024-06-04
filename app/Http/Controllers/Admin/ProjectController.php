@@ -30,6 +30,12 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'project_title'=>'required|max:255',
+            'project_description'=>'required|max:255',
+            'github_url'=>'required'
+        ]);
+
         $form_data= $request->all();
         $new_project = Project::create($form_data);
         return to_route('admin.projects.show', $new_project);
