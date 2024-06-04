@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Project;
+use Illuminate\Support\Str;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -21,8 +22,9 @@ class ProjectSeeder extends Seeder
         for($i = 0; $i < 10; $i++){
             $new_project = new Project();
 
-            $titles = ['laravel_auth', 'laravel_crud', 'laravel_intro', 'laravel_migration_seeder', 'laravel_preset', 'laravel_model_controller', 'laravel_assets', 'php', 'php_intro', 'php_laravel'];
+            $titles = ['laravel auth', 'laravel crud', 'laravel intro', 'laravel migration seeder', 'laravel preset', 'laravel model controller', 'laravel assets', 'php', 'php intro', 'php laravel'];
             $new_project->project_title = $faker->randomElement($titles);
+            $new_project->slug = Str::slug($new_project->project_title);
             $new_project->project_description = $faker->text();        
             $new_project->github_url = $faker->url();
             $new_project->save();   

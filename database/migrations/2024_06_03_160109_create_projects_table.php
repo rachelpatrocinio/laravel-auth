@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('project_title');
+            $table->string('slug');
             $table->string('project_description');
             $table->text('github_url');
         });
